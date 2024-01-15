@@ -1,0 +1,209 @@
+   <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign Up</title>
+
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+
+*{
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #1a1a1a;
+}
+
+
+form{
+    background: #1a1a1a;
+    margin-top: 75px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    z-index: 9;
+}
+
+input{
+    padding: 10px 12px;
+    border: none;
+    background: #262626;
+    width: 100%;
+    color: white;
+    border: ;
+}
+textarea{
+    width: 100%;
+    color: white;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+}
+.submit{
+    padding: 10px 20px;
+    background: orange;
+    color: white;
+    border: none;
+    border-radius: 20px;
+
+}
+</style>
+
+<body>
+    
+
+    <form action="https://formspree.io/f/xbjbobwv"
+  method="POST" class="form">
+        <legend style="font-size:25px;color: orange;text-align: center;">Register</legend>
+
+        
+      <label for="name">
+          <p>Name</p>
+          </label>
+        <input type="text" id="name" placeholder="Enter name" name="name" required>
+        
+              <label for="email">
+          <p>Email</p>
+          </label>
+        <input type="email" name="email" id="email" placeholder="Enter email" required>
+        
+              <label for="psw">
+          <p>Password</p>
+          </label>
+        <input type="password" maxlength="8" onblur="Psw()" onkeyup="pswd()" id="psw" placeholder="Enter password" name="password" required>
+
+
+          <label for="r_psw">
+          <p>Repeat Password</p>
+          </label>
+        <input type="password" id="r_psw" maxlength="8" placeholder="Repeat password" onblur="R_psw()"  name="r_password" required>
+        
+              <label for="phone">
+          <p>Phone</p>
+          </label>
+                <input type="number" id="phone" placeholder="Enter phone nom" name="phone" required>
+                
+            <label for="message">
+          <p>Message</p>
+          </label>   
+        <textarea id="message" rows="4" placeholder="How can we help you?" class="textarea" name="message"></textarea>
+
+      <br>
+      <br>
+      <center>
+        <button id="submit" name="submit" onclick="Sub()" class="submit">Register</button>
+    </center>
+    </form>
+
+
+
+    <script type="text/javascript">
+
+        function pswd(){
+            var psw=document.getElementById("psw");
+            
+            var r_psw=document.getElementById("r_psw");
+
+            if(psw.value.length < 8){
+              document.getElementById("submit").style.display="none";
+            }
+            else{
+             document.getElementById("submit").style.display="block";
+                
+            }
+        }
+
+
+ function Psw(){
+            var psw=document.getElementById("psw");
+            
+            var r_psw=document.getElementById("r_psw");
+
+            if(psw.value.length < 8){
+              
+                psw.style.background="red";
+                psw.value="At least 8 characters";
+                psw.type="text"
+            }
+
+            else if(psw.value.length == 8){
+
+               psw.type="password"
+                psw.style.background="";
+            }
+
+          if(psw.value !== r_psw.value){
+            r_psw.value="";
+            r_psw.style.background="";
+
+          }
+
+            if(psw.style.background=="red") {
+            document.getElementById("submit").style.display="none";
+            }
+
+            else{
+
+            document.getElementById("submit").style.display="block";
+               psw.type="password"
+                psw.style.background="";
+            }
+        }
+
+function Sub(){
+     var psw=document.getElementById("psw");
+            
+            var r_psw=document.getElementById("r_psw");
+
+            if(psw.style.background=="red" || r_psw.style.background=="red"){
+
+                alert("password incorrect");
+                }
+}
+
+        function R_psw(){
+            var psw=document.getElementById("psw");
+
+            var r_psw=document.getElementById("r_psw");
+
+            if(r_psw.value !== psw.value){
+               
+                r_psw.style.background="red";
+                r_psw.value="The confirmation password does not match";
+
+                r_psw.type="text"
+          
+            }
+
+            else if(r_psw.value == psw.value){
+           
+                r_psw.style.background="green";
+                r_psw.type="password"
+            }
+
+            if(r_psw.style.background=="red") {
+            document.getElementById("submit").style.display="none";
+            }
+
+            else{
+                r_psw.type="password"
+                 r_psw.style.background="green";
+              document.getElementById("submit").style.display="block";    
+            }
+        }
+
+
+
+        document.addEventListener("keydown",(e)=>{
+            if(e.key ==="Enter" && document.getElementById("psw").style.background=="red"){
+                window.location.reload();
+            }
+        })
+    </script>
+    </body>
+    </html>
