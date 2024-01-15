@@ -1,0 +1,117 @@
+   <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+
+*{
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 30px;
+    background: #1a1a1a;
+}
+
+
+form{
+    background: #1a1a1a;
+    margin-top: 75px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    z-index: 9;
+}
+
+input{
+    padding: 10px 12px;
+    border: none;
+    background: #262626;
+    width: 100%;
+    color: white;
+    border: ;
+}
+textarea{
+    width: 100%;
+    color: white;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+}
+.submit{
+    padding: 10px 20px;
+    background: orange;
+    color: white;
+    border: none;
+    border-radius: 20px;
+
+}
+</style>
+
+<body onload="loginL()">
+    
+
+    <form class="form">
+        <legend style="font-size:25px;color: orange;text-align: center;">Login</legend>
+
+        
+        
+              <label for="email">
+          <p>Email</p>
+          </label>
+        <input type="email" name="email" id="email" placeholder="Enter email" required>
+        
+              <label for="psw">
+          <p>Password</p>
+          </label>
+        <input type="password" maxlength="8" id="psw" placeholder="Enter password" name="password" required>
+
+
+      <br>
+      <br>
+      <center>
+        <button id="submit" name="submit" class="submit" onclick="loginbut()">Login</button>
+    </center>
+    </form>
+
+
+
+<script type="text/javascript">
+    function loginL(){
+const data= fs.readFileSync("C:/Users/USER/Documents/proj/signup/login.json");
+ const jsonata= JSON.parse(login)
+
+ jsonData.push({email:'kkk@gmail.com',password:'oooo'});
+ fs.writeFileSync('C:/Users/USER/Documents/proj/signup/login.json', JSON.stringify(jsondata));
+}
+    function loginbut(){
+        var email=document.getElementById("email");
+        var psw=document.getElementById("psw");
+
+
+        var loginy=JSON.parse(login);
+
+        for(var i=0; i< loginy.length; i++){
+            var loginemail=loginy[i].email;
+            var loginpsw=loginy[i].password;
+
+            
+           if(email.value == loginy[i].email){
+            alert("registered")
+           }
+           else{
+            alert("not registered")
+           }
+    
+        }
+    }
+</script>
+    <script type="text/javascript" src="login.json"></script>
+    </body>
+    </html>
